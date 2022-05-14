@@ -33,5 +33,9 @@ function su{
 	saps wt -Verb RunAs
 }
 
+function git-shallone($repo){
+	git clone $repo --depth 1
+}
+
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
