@@ -12,6 +12,14 @@ function showPath{
 	(gc Env:path) -split ';' | tee -Variable tmp | measure && gv tmp -ValueOnly
 }
 
+function ltd{
+	ls | sort lastwritetime -descending
+}
+
+function lt{
+	ls | sort lastwritetime
+}
+
 function pathSearch($pattern){
 	(gc Env:path) -split ';' -match $pattern
 }
