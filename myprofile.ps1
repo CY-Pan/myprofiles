@@ -12,12 +12,16 @@ function showPath{
 	(gc Env:path) -split ';' | tee -Variable tmp | measure && gv tmp -ValueOnly
 }
 
-function ltd{
-	ls | sort lastwritetime -descending
+function lt([switch]$Descending){
+	if($Descending.IsPresent){
+		ls | sort LastWriteTime
+	}else{
+		ls | sort LastWriteTime -Descending
+	}
 }
 
-function lt{
-	ls | sort lastwritetime
+function du($dir='.'){
+	gci $dir -Recurse | measure -Property Length -Sum
 }
 
 function pathSearch($pattern){
