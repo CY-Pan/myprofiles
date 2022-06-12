@@ -14,14 +14,14 @@ function showPath{
 
 function lt([switch]$Descending){
 	if($Descending.IsPresent){
-		ls | sort LastWriteTime
-	}else{
 		ls | sort LastWriteTime -Descending
+	}else{
+		ls | sort LastWriteTime
 	}
 }
 
 function du($dir='.'){
-	gci $dir -Recurse | measure -Property Length -Sum
+	gci $dir -Recurse -Force | measure -Property Length -Sum
 }
 
 function pathSearch($pattern){
