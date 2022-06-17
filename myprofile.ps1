@@ -8,8 +8,10 @@ function unproxy{
 	ri Env:https_proxy
 }
 
-function showPath{
-	(gc Env:path) -split ';' | tee -Variable tmp | measure && gv tmp -ValueOnly
+function showPath($pattern){
+	$tmp = (gc Env:path) -split ';' -match $pattern
+	$tmp | measure -Line
+	gv tmp -ValueOnly
 }
 
 function lt([switch]$Descending){
@@ -22,10 +24,6 @@ function lt([switch]$Descending){
 
 function du($dir='.'){
 	gci $dir -Recurse -Force | measure -Property Length -Sum
-}
-
-function pathSearch($pattern){
-	(gc Env:path) -split ';' -match $pattern
 }
 
 function pipUpdate{
