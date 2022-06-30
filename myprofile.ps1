@@ -1,6 +1,6 @@
 function proxy{
-	$Env:http_proxy="http://127.0.0.1:7890"
-	$Env:https_proxy="http://127.0.0.1:7890"
+	$Env:http_proxy="socks5://127.0.0.1:8890"
+	$Env:https_proxy="socks5://127.0.0.1:8890"
 }
 
 function unproxy{
