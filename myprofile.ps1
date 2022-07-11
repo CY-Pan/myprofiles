@@ -47,5 +47,7 @@ function git-shallone($repo){
 	git clone $repo --depth 1
 }
 
+sal open -Value explorer
+
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
