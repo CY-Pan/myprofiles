@@ -14,7 +14,7 @@ function unproxy{
 }
 
 function showPath($pattern){
-	$tmp = (gc Env:path) -split ';' -match $pattern
+	$tmp = $Env:path -split ';' -match $pattern
 	$tmp | measure -Line
 	gv tmp -ValueOnly
 }
