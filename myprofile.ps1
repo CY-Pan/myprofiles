@@ -32,7 +32,8 @@ function du($dir='.'){
 }
 
 function pipUpdate{
-	pip list -o --format freeze | %{$_.split('==')[0]} | %{pip install -U $_}
+	python -m pip install -U pip
+	(pipdeptree --warn silence) -match '^\w+' | %{$_.split('==')[0]} | %{pip install -U $_}
 	pip cache purge
 }
 
