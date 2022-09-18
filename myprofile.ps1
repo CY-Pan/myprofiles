@@ -53,6 +53,32 @@ function git-shallone($repo){
 	git clone $repo --depth 1
 }
 
+function addRegistryLocations(){
+	if(!(Test-Path HKCR:)){ mount -PSProvider Registry -Root HKEY_CLASSES_ROOT -Name HKCR -Scope Global}
+	if(!(Test-Path HKCU:)){ mount -PSProvider Registry -Root HKEY_CURRENT_USER -Name HKCU -Scope Global}
+	if(!(Test-Path HKLM:)){ mount -PSProvider Registry -Root HKEY_LOCAL_MACHINE -Name HKLM -Scope Global}
+	if(!(Test-Path HKU:)){ mount -PSProvider Registry -Root HKEY_USERS -Name HKU -Scope Global}
+	if(!(Test-Path HKCC:)){ mount -PSProvider Registry -Root HKEY_CURRENT_CONFIG -Name HKCC -Scope Global}
+}
+
+function newRegistryItemForOpen(){
+	Param(
+		[Parameter(Mandatory)][string]$Ext,
+		[Parameter(Mandatory)][string]$Program,
+		[Parameter(Mandatory)][string]$IconPath
+	)
+
+	ni ".$($Ext)_auto_file"
+	ni ".$($Ext)_auto_file\DefaultIcon"
+	ni ".$($Ext)_auto_file\shell"
+	ni ".$($Ext)_auto_file\shell\open"
+	ni ".$($Ext)_auto_file\shell\open\command"
+
+	sp ".$($Ext)_auto_file\DefaultIcon" -Name '(default)' -Value $IconPath
+	sp ".$($Ext)_auto_file\shell\open" -Name '(default)' -Value """$Program"""
+	sp ".$($Ext)_auto_file\shell\open\command" -Name '(default)' -Value """$Program"" ""%1"""
+}
+
 sal open -Value explorer
 
 Set-PSReadLineOption -PredictionSource History
