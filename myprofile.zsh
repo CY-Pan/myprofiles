@@ -12,7 +12,8 @@ unproxy(){
 }
 
 pipupdate(){
-	pip list -o --format freeze | cut -d = -f 1 | xargs pip install -U
+	pip install -U pip
+	pipdeptree --warn silence | grep -E '^\w+' | cut -d = -f 1 | xargs pip install -U
 	pip cache purge
 }
 
