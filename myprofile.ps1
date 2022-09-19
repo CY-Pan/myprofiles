@@ -21,9 +21,9 @@ function showPath($pattern){
 
 function lt([switch]$Descending){
 	if($Descending.IsPresent){
-		ls | sort LastWriteTime -Descending
+		gci | sort LastWriteTime -Descending
 	}else{
-		ls | sort LastWriteTime
+		gci | sort LastWriteTime
 	}
 }
 
@@ -54,11 +54,11 @@ function git-shallone($repo){
 }
 
 function addRegistryLocations(){
-	if(!(Test-Path HKCR:)){ mount -PSProvider Registry -Root HKEY_CLASSES_ROOT -Name HKCR -Scope Global }
-	if(!(Test-Path HKCU:)){ mount -PSProvider Registry -Root HKEY_CURRENT_USER -Name HKCU -Scope Global }
-	if(!(Test-Path HKLM:)){ mount -PSProvider Registry -Root HKEY_LOCAL_MACHINE -Name HKLM -Scope Global }
-	if(!(Test-Path HKU:)) { mount -PSProvider Registry -Root HKEY_USERS -Name HKU -Scope Global }
-	if(!(Test-Path HKCC:)){ mount -PSProvider Registry -Root HKEY_CURRENT_CONFIG -Name HKCC -Scope Global }
+	if(!(Test-Path HKCR:)){ ndr -PSProvider Registry -Root HKEY_CLASSES_ROOT -Name HKCR -Scope Global }
+	if(!(Test-Path HKCU:)){ ndr -PSProvider Registry -Root HKEY_CURRENT_USER -Name HKCU -Scope Global }
+	if(!(Test-Path HKLM:)){ ndr -PSProvider Registry -Root HKEY_LOCAL_MACHINE -Name HKLM -Scope Global }
+	if(!(Test-Path HKU:)) { ndr -PSProvider Registry -Root HKEY_USERS -Name HKU -Scope Global }
+	if(!(Test-Path HKCC:)){ ndr -PSProvider Registry -Root HKEY_CURRENT_CONFIG -Name HKCC -Scope Global }
 }
 
 function newRegistryItemForOpen(){
