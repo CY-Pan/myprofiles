@@ -54,11 +54,11 @@ function git-shallone($repo){
 }
 
 function addRegistryLocations(){
-	if(!(Test-Path HKCR:)){ mount -PSProvider Registry -Root HKEY_CLASSES_ROOT -Name HKCR -Scope Global}
-	if(!(Test-Path HKCU:)){ mount -PSProvider Registry -Root HKEY_CURRENT_USER -Name HKCU -Scope Global}
-	if(!(Test-Path HKLM:)){ mount -PSProvider Registry -Root HKEY_LOCAL_MACHINE -Name HKLM -Scope Global}
-	if(!(Test-Path HKU:)){ mount -PSProvider Registry -Root HKEY_USERS -Name HKU -Scope Global}
-	if(!(Test-Path HKCC:)){ mount -PSProvider Registry -Root HKEY_CURRENT_CONFIG -Name HKCC -Scope Global}
+	if(!(Test-Path HKCR:)){ mount -PSProvider Registry -Root HKEY_CLASSES_ROOT -Name HKCR -Scope Global }
+	if(!(Test-Path HKCU:)){ mount -PSProvider Registry -Root HKEY_CURRENT_USER -Name HKCU -Scope Global }
+	if(!(Test-Path HKLM:)){ mount -PSProvider Registry -Root HKEY_LOCAL_MACHINE -Name HKLM -Scope Global }
+	if(!(Test-Path HKU:)) { mount -PSProvider Registry -Root HKEY_USERS -Name HKU -Scope Global }
+	if(!(Test-Path HKCC:)){ mount -PSProvider Registry -Root HKEY_CURRENT_CONFIG -Name HKCC -Scope Global }
 }
 
 function newRegistryItemForOpen(){
@@ -77,6 +77,10 @@ function newRegistryItemForOpen(){
 	sp ".$($Ext)_auto_file\DefaultIcon" -Name '(default)' -Value $IconPath
 	sp ".$($Ext)_auto_file\shell\open" -Name '(default)' -Value """$Program"""
 	sp ".$($Ext)_auto_file\shell\open\command" -Name '(default)' -Value """$Program"" ""%1"""
+}
+
+function downloadYTaudio($URL){
+	yt-dlp -f ba -x $URL
 }
 
 sal open -Value explorer
