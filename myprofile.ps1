@@ -85,7 +85,7 @@ function downloadYTaudio($URL){
 
 sal open -Value explorer
 
-if(!(Test-Path Env:SSH_CONNECTION)){
+if([Environment]::UserInteractive){
 	Set-PSReadLineOption -PredictionSource History
 	Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
 }
