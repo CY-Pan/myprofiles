@@ -80,7 +80,7 @@ function newRegistryItemForOpen(){
 }
 
 function downloadYTaudio($URL){
-	yt-dlp -f ba -x $URL
+	yt-dlp -f ba -x --audio-format mp3 $URL
 }
 
 sal open -Value explorer
