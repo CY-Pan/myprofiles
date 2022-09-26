@@ -88,4 +88,6 @@ sal open -Value explorer
 if(!(Test-Path Env:SSH_CONNECTION) -or (Test-Path Env:SSH_TTY)){
 	Set-PSReadLineOption -PredictionSource History
 	Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
+
+	if(Test-Path Env:SSH_CONNECTION){ write "Hello, remote client from $($Env:SSH_CLIENT)." }
 }
