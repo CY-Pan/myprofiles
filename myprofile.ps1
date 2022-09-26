@@ -33,8 +33,8 @@ function du($dir='.'){
 
 function pipUpdate{
 	python -m pip install -U pip
-	(pipdeptree --warn silence) -match '^\w+' | %{$_.split('==')[0]} | %{pip install -U $_}
-	pip cache purge
+	(pipdeptree --warn silence) -match '^\w+' | %{$_.split('==')[0]} | %{pip3 install -U $_}
+	pip3 cache purge
 }
 
 function showSSHlogs($count=10){
