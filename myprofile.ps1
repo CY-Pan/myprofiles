@@ -80,10 +80,14 @@ function newRegistryItemForOpen(){
 }
 
 function downloadYTaudio($URL){
-	yt-dlp -f ba -x $URL
+	yt-dlp -f ba -x --audio-format mp3 $URL
 }
 
 sal open -Value explorer
 
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
+if(!(Test-Path Env:SSH_CONNECTION) -or (Test-Path Env:SSH_TTY)){
+	Set-PSReadLineOption -PredictionSource History
+	Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
+
+	if(Test-Path Env:SSH_CONNECTION){ write "Hello, remote client from $($Env:SSH_CLIENT)." }
+}
