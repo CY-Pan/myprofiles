@@ -12,9 +12,9 @@ unproxy(){
 }
 
 pipupdate(){
-	pip install -U pip
-	pipdeptree --warn silence | grep -E '^\w+' | cut -d = -f 1 | xargs pip install -U
-	pip cache purge
+	pip3 install -U pip
+	pipdeptree --warn silence | grep -E '^\w+' | cut -d = -f 1 | xargs pip3 install -U
+	pip3 cache purge
 }
 
 brewupdate(){
