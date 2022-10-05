@@ -81,7 +81,7 @@ function downloadYTaudio($URL){
 }
 
 function downloadYTvideo($URL){
-	yt-dlp --merge-output mp4 $URL
+	yt-dlp --merge-output-format mp4 $URL
 }
 
 sal open -Value explorer
