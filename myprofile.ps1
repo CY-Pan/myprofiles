@@ -20,11 +20,8 @@ function showPath($pattern){
 }
 
 function lt([switch]$Descending){
-	if($Descending.IsPresent){
-		gci | sort LastWriteTime -Descending
-	}else{
-		gci | sort LastWriteTime
-	}
+	if($Descending.IsPresent){ gci | sort LastWriteTime -Descending }
+	else{ gci | sort LastWriteTime }
 }
 
 function du($dir='.'){
