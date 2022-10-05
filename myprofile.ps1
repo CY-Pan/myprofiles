@@ -83,6 +83,10 @@ function downloadYTaudio($URL){
 	yt-dlp -f ba -x --audio-format mp3 $URL
 }
 
+function downloadYTvideo($URL){
+	yt-dlp --merge-output mp4 $URL
+}
+
 sal open -Value explorer
 
 if(!(Test-Path Env:SSH_CONNECTION) -or (Test-Path Env:SSH_TTY)){
