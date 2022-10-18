@@ -1,0 +1,7 @@
+[core]
+	safecrlf = false
+[user]
+	email = adredpcy@163.com
+	name = CY-Pan
+[init]
+	defaultBranch = main
