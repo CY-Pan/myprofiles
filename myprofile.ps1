@@ -1,16 +1,12 @@
-function proxy1{
-	$Env:http_proxy="http://localhost:7890"
-	$Env:https_proxy="http://localhost:7890"
-}
-
-function proxy2{
-	$Env:http_proxy="socks5://localhost:8890"
-	$Env:https_proxy="socks5://localhost:8890"
-}
-
-function unproxy{
-	ri Env:http_proxy
-	ri Env:https_proxy
+function proxy($set=1){
+	switch($set){
+		0 { ri Env:http_proxy
+			ri Env:https_proxy }
+		1 { $Env:http_proxy="http://localhost:7890"
+			$Env:https_proxy="http://localhost:7890" }
+		2 { $Env:http_proxy="socks5://localhost:8890"
+			$Env:https_proxy="socks5://localhost:8890" }
+	}
 }
 
 function showPath($pattern){
@@ -46,7 +42,7 @@ function su{
 	saps wt -Verb RunAs
 }
 
-function git-shallone($repo){
+function git-shallone([Parameter(Mandatory)]$repo){
 	git clone $repo --depth 1
 }
 
@@ -58,13 +54,8 @@ function addRegistryLocations(){
 	if(!(Test-Path HKCC:)){ ndr -PSProvider Registry -Root HKEY_CURRENT_CONFIG -Name HKCC -Scope Global }
 }
 
-function newRegistryItemForOpen(){
-	Param(
-		[Parameter(Mandatory)][string]$Ext,
-		[Parameter(Mandatory)][string]$Program,
-		[Parameter(Mandatory)][string]$IconPath
-	)
-
+function newRegistryItemForOpen([Parameter(Mandatory)][string]$Ext,
+		[Parameter(Mandatory)][string]$Program,	[Parameter(Mandatory)][string]$IconPath){
 	ni ".$($Ext)_auto_file"
 	ni ".$($Ext)_auto_file\DefaultIcon"
 	ni ".$($Ext)_auto_file\shell"
@@ -76,14 +67,19 @@ function newRegistryItemForOpen(){
 	sp ".$($Ext)_auto_file\shell\open\command" -Name '(default)' -Value """$Program"" ""%1"""
 }
 
-function downloadYTaudio($URL){
+function downloadYTaudio([Parameter(Mandatory)]$URL){
 	yt-dlp -f ba -x --audio-format mp3 $URL
 }
 
-function downloadYTvideo($URL){
+function downloadYTvideo([Parameter(Mandatory)]$URL){
 	yt-dlp --merge-output-format mp4 $URL
 }
 
+function ft([Parameter(Mandatory,ValueFromPipeline)]$table){
+	$table | Format-Table -Wrap
+}
+
+Remove-Alias ft -Force
 sal open -Value explorer
 
 if(!(Test-Path Env:SSH_CONNECTION) -or (Test-Path Env:SSH_TTY)){
