@@ -1,14 +1,17 @@
-proxy1(){
-	export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
-}
-
-proxy2(){
-	export https_proxy=socks5://127.0.0.1:8890 http_proxy=socks5://127.0.0.1:8890 all_proxy=socks5://127.0.0.1:8890
-}
-
-unproxy(){
-	unset https_proxy http_proxy all_proxy
-	export https_proxy http_proxy all_proxy
+proxy(){
+	set=${1:-1}
+	case $set in
+	'0')
+		unset https_proxy http_proxy all_proxy
+		export https_proxy http_proxy all_proxy
+	;;
+	'1')
+		export https_proxy=http://localhost:7890 http_proxy=http://localhost:7890 all_proxy=socks5://localhost:7890
+	;;
+	'2')
+		export https_proxy=socks5://localhost:8890 http_proxy=socks5://localhost:8890 all_proxy=socks5://localhost:8890
+	;;
+	esac
 }
 
 pipupdate(){
