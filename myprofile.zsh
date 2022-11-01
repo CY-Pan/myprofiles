@@ -15,7 +15,7 @@ proxy(){
 }
 
 pipupdate(){
-	pip3 install -U pip
+	python3 -m pip install -U pip
 	pipdeptree --warn silence | grep -E '^\w+' | cut -d = -f 1 | xargs pip3 install -U
 	pip3 cache purge
 }
