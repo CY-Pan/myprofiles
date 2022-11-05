@@ -9,7 +9,7 @@ proxy(){
 		export https_proxy=http://localhost:7890 http_proxy=http://localhost:7890 all_proxy=socks5://localhost:7890
 	;;
 	2)
-		export https_proxy=socks5://localhost:8890 http_proxy=socks5://localhost:8890 all_proxy=socks5://localhost:8890
+		export https_proxy=http://localhost:8889 http_proxy=http://localhost:8889 all_proxy=socks5://localhost:8890
 	;;
 	esac
 }

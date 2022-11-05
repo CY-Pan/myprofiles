@@ -4,8 +4,8 @@ function proxy($set=1){
 			ri Env:https_proxy }
 		1 { $Env:http_proxy="http://localhost:7890"
 			$Env:https_proxy="http://localhost:7890" }
-		2 { $Env:http_proxy="socks5://localhost:8890"
-			$Env:https_proxy="socks5://localhost:8890" }
+		2 { $Env:http_proxy="socks5://localhost:8889"
+			$Env:https_proxy="socks5://localhost:8889" }
 	}
 }
 
