@@ -79,6 +79,10 @@ function ft([Parameter(Mandatory,ValueFromPipeline)]$table){
 	$table | Format-Table -Wrap
 }
 
+function find($path, $name){
+	gci $path -Recurse -Include $name
+}
+
 Remove-Alias ft -Force
 sal open -Value explorer
 
