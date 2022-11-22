@@ -79,8 +79,12 @@ function ft([Parameter(Mandatory,ValueFromPipeline)]$table){
 	$table | Format-Table -Wrap
 }
 
-function find($path, $name){
+function find([Parameter(Mandatory)]$path, [Parameter(Mandatory)]$name){
 	gci $path -Recurse -Include $name
+}
+
+function ln([Parameter(Mandatory)]$src, [Parameter(Mandatory)]$linkpath){
+	ni -ItemType SymbolicLink -Target $src $linkpath
 }
 
 Remove-Alias ft -Force
