@@ -2,10 +2,10 @@ function proxy($set=1){
 	switch($set){
 		0 { ri Env:http_proxy
 			ri Env:https_proxy }
-		1 { $Env:http_proxy="http://localhost:7890"
-			$Env:https_proxy="http://localhost:7890" }
-		2 { $Env:http_proxy="http://localhost:8889"
-			$Env:https_proxy="http://localhost:8889" }
+		1 { $Env:http_proxy='http://localhost:7890'
+			$Env:https_proxy='http://localhost:7890' }
+		2 { $Env:http_proxy='http://localhost:8889'
+			$Env:https_proxy='http://localhost:8889' }
 	}
 }
 
@@ -86,6 +86,23 @@ function find([Parameter(Mandatory)]$path, [Parameter(Mandatory)]$name){
 function ln([Parameter(Mandatory)]$src, [Parameter(Mandatory)]$linkpath){
 	ni -ItemType SymbolicLink -Target $src $linkpath
 }
+
+function dice(){
+	$val = Get-Random 6 -Count 2
+
+	Read-Host 'Question'
+	Write-Host 'The dice shows ' -NoNewline
+	Write-Host $val -ForegroundColor Yellow
+	if($val[0]%2 -eq $val[1]%2){
+		Write-Host 'Parity matches'
+		Write-Host 'Yes' -ForegroundColor Green
+	}
+	else{
+		Write-Host 'Parity mismatches'
+		Write-Host 'No' -ForegroundColor Red
+	}
+}
+
 
 Remove-Alias ft -Force
 sal open -Value explorer
