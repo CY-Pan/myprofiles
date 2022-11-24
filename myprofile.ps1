@@ -80,7 +80,7 @@ function ft([Parameter(Mandatory,ValueFromPipeline)]$table){
 }
 
 function find([Parameter(Mandatory)]$path, [Parameter(Mandatory)]$name){
-	gci $path -Recurse -Include $name
+	gci $path -Recurse -Force -Include $name
 }
 
 function ln([Parameter(Mandatory)]$src, [Parameter(Mandatory)]$linkpath){
