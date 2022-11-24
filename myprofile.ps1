@@ -88,11 +88,11 @@ function ln([Parameter(Mandatory)]$src, [Parameter(Mandatory)]$linkpath){
 }
 
 function dice(){
+	Read-Host 'Question' | Out-Null	
 	$val = Get-Random 6 -Count 2
-
-	Read-Host 'Question'
 	Write-Host 'The dice shows ' -NoNewline
 	Write-Host $val -ForegroundColor Yellow
+
 	if($val[0]%2 -eq $val[1]%2){
 		Write-Host 'Parity matches'
 		Write-Host 'Yes' -ForegroundColor Green
