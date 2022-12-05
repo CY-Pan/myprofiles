@@ -105,6 +105,7 @@ function dice(){
 
 
 Remove-Alias ft -Force
+Remove-Alias diff -Force
 sal open -Value explorer
 
 if(!(Test-Path Env:SSH_CONNECTION) -or (Test-Path Env:SSH_TTY)){
