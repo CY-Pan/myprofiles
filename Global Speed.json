@@ -1,0 +1,355 @@
+{
+	"version": 10,
+	"firstUse": 1670936341140,
+	"keybinds": [
+		{
+			"id": "5593403028",
+			"command": "adjustSpeed",
+			"enabled": true,
+			"greedy": true,
+			"adjustMode": 2,
+			"key": "KeyA",
+			"valueNumberAlt": -0.1
+		},
+		{
+			"id": "7963374491",
+			"command": "adjustSpeed",
+			"enabled": true,
+			"greedy": true,
+			"adjustMode": 1,
+			"key": "KeyS",
+			"valueNumber": 1
+		},
+		{
+			"id": "4681812764",
+			"command": "adjustSpeed",
+			"enabled": true,
+			"greedy": true,
+			"adjustMode": 2,
+			"key": "KeyD",
+			"valueNumberAlt": 0.1,
+			"spacing": 1
+		},
+		{
+			"id": "5077176383",
+			"command": "setPin",
+			"enabled": true,
+			"greedy": true,
+			"valueState": "toggle",
+			"key": "KeyQ"
+		},
+		{
+			"id": "9514714506",
+			"command": "setState",
+			"enabled": true,
+			"greedy": true,
+			"valueState": "toggle",
+			"key": {
+				"code": "KeyQ",
+				"shiftKey": true
+			},
+			"spacing": 2
+		},
+		{
+			"id": "8906361566",
+			"command": "seek",
+			"enabled": true,
+			"greedy": true,
+			"valueNumber": -5,
+			"key": "KeyZ"
+		},
+		{
+			"id": "5634681619",
+			"command": "seek",
+			"enabled": true,
+			"greedy": true,
+			"valueNumber": 10,
+			"key": "KeyX",
+			"spacing": 1
+		},
+		{
+			"id": "5058338593",
+			"command": "seek",
+			"enabled": true,
+			"greedy": true,
+			"valueNumber": -0.041,
+			"key": {
+				"shiftKey": true,
+				"code": "KeyZ"
+			},
+			"valueBool3": true
+		},
+		{
+			"id": "6647221723",
+			"command": "seek",
+			"enabled": true,
+			"greedy": true,
+			"valueNumber": 0.041,
+			"key": {
+				"shiftKey": true,
+				"code": "KeyX"
+			},
+			"spacing": 1,
+			"valueBool3": true
+		},
+		{
+			"id": "9334020343",
+			"command": "fullscreen",
+			"enabled": true,
+			"greedy": true,
+			"key": {
+				"shiftKey": true,
+				"code": "KeyF"
+			},
+			"valueBool": true,
+			"spacing": 2
+		},
+		{
+			"id": "4097814766",
+			"command": "setMark",
+			"enabled": true,
+			"greedy": true,
+			"valueString": "mark1",
+			"key": {
+				"shiftKey": true,
+				"code": "KeyW"
+			}
+		},
+		{
+			"id": "7034391398",
+			"command": "seekMark",
+			"enabled": true,
+			"greedy": true,
+			"valueString": "mark1",
+			"key": "KeyW"
+		},
+		{
+			"id": "7016456647",
+			"command": "toggleLoop",
+			"enabled": false,
+			"greedy": true,
+			"valueString": "mark1",
+			"key": "KeyR",
+			"spacing": 2
+		},
+		{
+			"id": "830212920",
+			"command": "adjustFilter",
+			"filterOption": "invert",
+			"enabled": false,
+			"greedy": true,
+			"filterTarget": "both",
+			"adjustMode": 3,
+			"key": {
+				"code": "KeyE"
+			},
+			"valueCycle": [
+				0,
+				1
+			]
+		},
+		{
+			"id": "5792080400",
+			"command": "adjustFilter",
+			"filterOption": "grayscale",
+			"enabled": false,
+			"greedy": true,
+			"filterTarget": "backdrop",
+			"adjustMode": 3,
+			"key": {
+				"code": "KeyE",
+				"shiftKey": true
+			},
+			"valueCycle": [
+				0,
+				1
+			],
+			"spacing": 2
+		}
+	],
+	"common": {
+		"speed": 1,
+		"enabled": false,
+		"backdropFx": {
+			"filters": [
+				{
+					"name": "sepia",
+					"value": 0
+				},
+				{
+					"name": "hueRotate",
+					"value": 0
+				},
+				{
+					"name": "grayscale",
+					"value": 0
+				},
+				{
+					"name": "contrast",
+					"value": 1
+				},
+				{
+					"name": "brightness",
+					"value": 1
+				},
+				{
+					"name": "saturate",
+					"value": 1
+				},
+				{
+					"name": "invert",
+					"value": 0
+				},
+				{
+					"name": "blur",
+					"value": 0
+				},
+				{
+					"name": "opacity",
+					"value": 1
+				}
+			],
+			"transforms": [
+				{
+					"name": "scaleX",
+					"value": 1
+				},
+				{
+					"name": "scaleY",
+					"value": 1
+				},
+				{
+					"name": "translateX",
+					"value": 0
+				},
+				{
+					"name": "translateY",
+					"value": 0
+				},
+				{
+					"name": "rotateX",
+					"value": 0
+				},
+				{
+					"name": "rotateY",
+					"value": 0
+				},
+				{
+					"name": "rotateZ",
+					"value": 0
+				}
+			]
+		},
+		"elementFx": {
+			"filters": [
+				{
+					"name": "sepia",
+					"value": 0
+				},
+				{
+					"name": "hueRotate",
+					"value": 0
+				},
+				{
+					"name": "grayscale",
+					"value": 0
+				},
+				{
+					"name": "contrast",
+					"value": 1
+				},
+				{
+					"name": "brightness",
+					"value": 1
+				},
+				{
+					"name": "saturate",
+					"value": 1
+				},
+				{
+					"name": "invert",
+					"value": 0
+				},
+				{
+					"name": "blur",
+					"value": 0
+				},
+				{
+					"name": "opacity",
+					"value": 1
+				}
+			],
+			"transforms": [
+				{
+					"name": "scaleX",
+					"value": 1
+				},
+				{
+					"name": "scaleY",
+					"value": 1
+				},
+				{
+					"name": "translateX",
+					"value": 0
+				},
+				{
+					"name": "translateY",
+					"value": 0
+				},
+				{
+					"name": "rotateX",
+					"value": 0
+				},
+				{
+					"name": "rotateY",
+					"value": 0
+				},
+				{
+					"name": "rotateZ",
+					"value": 0
+				}
+			]
+		},
+		"audioFx": {
+			"pitch": 0,
+			"volume": 1,
+			"delay": 0,
+			"eq": {
+				"enabled": false,
+				"factor": 1,
+				"values": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				]
+			}
+		},
+		"enabledLatestViaPopup": true
+	},
+	"speedPresets": [
+		1,
+		1.25,
+		1.5,
+		2,
+		2.5,
+		3,
+		3.5,
+		4,
+		5,
+		6,
+		8,
+		10
+	],
+	"speedSmallStep": 0.1,
+	"speedBigStep": 1,
+	"pinByDefault": true,
+	"inheritPreviousContext": false,
+	"hideMediaView": null
+}

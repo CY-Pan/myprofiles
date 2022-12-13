@@ -1,0 +1,96 @@
+{
+	"+auto switch1": {
+		"color": "#99dd99",
+		"defaultProfileName": "proxy1",
+		"name": "auto switch1",
+		"profileType": "SwitchProfile",
+		"revision": "181fd941dde",
+		"rules": [
+			{
+				"condition": {
+					"conditionType": "HostWildcardCondition",
+					"pattern": "*.cn"
+				},
+				"profileName": "direct"
+			}
+		]
+	},
+	"+auto switch2": {
+		"color": "#ffee99",
+		"defaultProfileName": "proxy2",
+		"name": "auto switch2",
+		"profileType": "SwitchProfile",
+		"revision": "1840968b08d",
+		"rules": [
+			{
+				"condition": {
+					"conditionType": "HostWildcardCondition",
+					"pattern": "*.cn"
+				},
+				"profileName": "direct"
+			}
+		]
+	},
+	"+proxy1": {
+		"bypassList": [
+			{
+				"conditionType": "BypassCondition",
+				"pattern": "127.0.0.1"
+			},
+			{
+				"conditionType": "BypassCondition",
+				"pattern": "::1"
+			},
+			{
+				"conditionType": "BypassCondition",
+				"pattern": "localhost"
+			}
+		],
+		"color": "#99dd99",
+		"fallbackProxy": {
+			"host": "localhost",
+			"port": 7890,
+			"scheme": "http"
+		},
+		"name": "proxy1",
+		"profileType": "FixedProfile",
+		"revision": "18409689f1e"
+	},
+	"+proxy2": {
+		"bypassList": [
+			{
+				"conditionType": "BypassCondition",
+				"pattern": "127.0.0.1"
+			},
+			{
+				"conditionType": "BypassCondition",
+				"pattern": "::1"
+			},
+			{
+				"conditionType": "BypassCondition",
+				"pattern": "localhost"
+			}
+		],
+		"color": "#ffee99",
+		"fallbackProxy": {
+			"host": "localhost",
+			"port": 8889,
+			"scheme": "http"
+		},
+		"name": "proxy2",
+		"profileType": "FixedProfile",
+		"revision": "18474b5bde8"
+	},
+	"-addConditionsToBottom": false,
+	"-confirmDeletion": true,
+	"-downloadInterval": 1440,
+	"-enableQuickSwitch": false,
+	"-monitorWebRequests": true,
+	"-quickSwitchProfiles": [],
+	"-refreshOnProfileChange": false,
+	"-revertProxyChanges": true,
+	"-showExternalProfile": true,
+	"-showInspectMenu": true,
+	"-startupProfileName": "",
+	"schemaVersion": 2
+}
