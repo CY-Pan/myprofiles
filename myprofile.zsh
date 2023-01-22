@@ -25,3 +25,5 @@ brewupdate(){
 }
 
 alias git-shallone='git clone --depth 1'
+alias rm='rm -i'
+alias wget='curl -O'
