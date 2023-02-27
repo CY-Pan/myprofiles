@@ -67,11 +67,11 @@ function newRegistryItemForOpen([Parameter(Mandatory)][string]$Ext,
 	sp ".$($Ext)_auto_file\shell\open\command" -Name '(default)' -Value """$Program"" ""%1"""
 }
 
-function downloadYTaudio([Parameter(Mandatory)]$URL){
+function dYTaudio([Parameter(Mandatory)]$URL){
 	yt-dlp -f ba -x --audio-format mp3 $URL
 }
 
-function downloadYTvideo([Parameter(Mandatory)]$URL){
+function dYTvideo([Parameter(Mandatory)]$URL){
 	yt-dlp --merge-output-format mp4 $URL
 }
 
