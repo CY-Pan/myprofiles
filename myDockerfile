@@ -1,0 +1,20 @@
+FROM ubuntu
+
+RUN sed 's@^deb http://.*com@deb http://mirror.sjtu.edu.cn@g' /etc/apt/sources.list -i && \
+	apt update && apt upgrade -y && apt clean && apt autopurge && \
+	apt install -y git vim zsh wget sudo && \
+	useradd -m adred -s /usr/bin/zsh && usermod -aG sudo adred && \
+	sed 's@%sudo\sALL=(ALL:ALL)\sALL@%sudo ALL=(ALL:ALL) NOPASSWD:ALL@' /etc/sudoers -i
+
+WORKDIR /home/adred
+
+USER adred
+
+RUN sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+	sed 's@^plugins=(.*)@plugins=(zsh-autosuggestions zsh-syntax-highlighting)@' .zshrc -i
+
+RUN git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+CMD ["/usr/bin/zsh"]
