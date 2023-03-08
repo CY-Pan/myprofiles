@@ -1,8 +1,9 @@
 FROM ubuntu
 
 RUN sed 's@^deb http://.*com@deb http://mirror.sjtu.edu.cn@g' /etc/apt/sources.list -i && \
-	apt update && apt upgrade -y && apt clean && apt autopurge && \
+	apt update && apt upgrade -y && \
 	apt install -y git vim zsh wget sudo && \
+	apt clean && apt autopurge && \
 	useradd -m adred -s /usr/bin/zsh && usermod -aG sudo adred && \
 	sed 's@%sudo\sALL=(ALL:ALL)\sALL@%sudo ALL=(ALL:ALL) NOPASSWD:ALL@' /etc/sudoers -i
 
