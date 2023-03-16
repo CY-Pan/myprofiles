@@ -92,5 +92,37 @@
 	"-showExternalProfile": true,
 	"-showInspectMenu": true,
 	"-startupProfileName": "",
-	"schemaVersion": 2
+	"schemaVersion": 2,
+	"+only Bing1": {
+		"profileType": "SwitchProfile",
+		"name": "only Bing1",
+		"defaultProfileName": "direct",
+		"rules": [
+			{
+				"condition": {
+					"conditionType": "HostWildcardCondition",
+					"pattern": "bing.com"
+				},
+				"profileName": "proxy1"
+			}
+		],
+		"color": "#99dd99",
+		"revision": "186e9a02bf8"
+	},
+	"+only Bing2": {
+		"profileType": "SwitchProfile",
+		"name": "only Bing2",
+		"defaultProfileName": "direct",
+		"rules": [
+			{
+				"condition": {
+					"conditionType": "HostWildcardCondition",
+					"pattern": "bing.com"
+				},
+				"profileName": "proxy2"
+			}
+		],
+		"color": "#ffee99",
+		"revision": "186e9a09be1"
+	}
 }
