@@ -14,14 +14,21 @@ proxy(){
 	esac
 }
 
-pipupdate(){
+pipUpdate(){
 	python3 -m pip install -U pip
 	pipdeptree --warn silence | grep -E '^\w+' | cut -d = -f 1 | xargs pip3 install -U
 	pip3 cache purge
 }
 
-brewupdate(){
+brewUpdate(){
 	brew update && brew upgrade && brew autoremove && brew cleanup -s
+}
+
+clearOldEdge(){
+	cd ~/Library/Application\ Support/Microsoft/EdgeUpdater/apps/msedge-stable
+	files=($(ls | sort -V))
+	[[ ${#files} -gt 1 ]] && print "rm $files[1,-2]" && rm -fr $files[1,-2]
+	cd -
 }
 
 alias git-shallone='git clone --depth 1'
