@@ -27,7 +27,7 @@ brewUpdate(){
 clearOldEdge(){
 	cd ~/Library/Application\ Support/Microsoft/EdgeUpdater/apps/msedge-stable
 	files=($(ls | sort -V))
-	[[ ${#files} -gt 1 ]] && print "rm $files[1,-2]" && rm -fr $files[1,-2]
+	[[ ${#files} -gt 1 ]] && echo "rm $files[1,-2]" && rm -fr $files[1,-2]
 	cd -
 }
 
