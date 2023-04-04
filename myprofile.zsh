@@ -14,6 +14,18 @@ proxy(){
 	esac
 }
 
+getSystemProxy(){
+	networksetup -getwebproxy Wi-Fi
+	networksetup -getsecurewebproxy Wi-Fi
+	networksetup -getsocksfirewallproxy Wi-Fi
+}
+
+offSystemProxy(){
+	networksetup -setwebproxystate Wi-Fi off
+	networksetup -setsecurewebproxystate Wi-Fi off
+	networksetup -setsocksfirewallproxystate Wi-Fi off
+}
+
 pipUpdate(){
 	python3 -m pip install -U pip
 	pipdeptree --warn silence | grep -E '^\w+' | cut -d = -f 1 | xargs pip3 install -U
