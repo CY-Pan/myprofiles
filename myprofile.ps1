@@ -87,6 +87,20 @@ function ln([Parameter(Mandatory)]$src, [Parameter(Mandatory)]$linkpath){
 	ni -ItemType SymbolicLink -Target $src $linkpath
 }
 
+function recycle([Parameter(Mandatory, ValueFromRemainingArguments)][string[]]$items){
+	$items | %{
+		if(Test-Path $_ -PathType Leaf){
+			[Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile($(rvpa $_), 'OnlyErrorDialogs', 'SendToRecycleBin')
+		}
+		elseif(Test-Path $_ -PathType Container){
+			[Microsoft.VisualBasic.FileIO.FileSystem]::DeleteDirectory($(rvpa $_), 'OnlyErrorDialogs', 'SendToRecycleBin')
+		}
+		else{
+			Write-Error "Path not found: $_"
+		}
+	}
+}
+
 function dice(){
 	Read-Host 'Question' | Out-Null	
 	$val = Get-Random 6 -Count 2
@@ -103,10 +117,19 @@ function dice(){
 	}
 }
 
+function rm(){
+	Write-Error 'Do not use rm. Use recycle instead.'
+}
 
 Remove-Alias ft -Force
 Remove-Alias diff -Force
+Remove-Alias rm -Force
+Remove-Alias del -Force
+
 sal open -Value explorer
+sal ri -Value rm -Force
+sal rmdir -Value rm
+sal del -Value rm
 
 if(!(Test-Path Env:SSH_CONNECTION) -or (Test-Path Env:SSH_TTY)){
 	Set-PSReadLineOption -PredictionSource History
