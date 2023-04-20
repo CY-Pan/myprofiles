@@ -86,7 +86,7 @@ function ln([Parameter(Mandatory)]$src, [Parameter(Mandatory)]$linkpath){
 	New-Item -ItemType SymbolicLink -Target $src $linkpath
 }
 
-function recycle([Parameter(Mandatory, ValueFromRemainingArguments)][string[]]$items){
+function rc([Parameter(Mandatory, ValueFromRemainingArguments)][string[]]$items){
 	$items | %{
 		if(Test-Path $_ -PathType Leaf){
 			[Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile($(Resolve-Path $_), 'OnlyErrorDialogs', 'SendToRecycleBin')
@@ -117,7 +117,7 @@ function dice(){
 }
 
 function rm(){
-	Write-Error 'Do not use rm. Use recycle instead.'
+	Write-Error 'Do not use rm. Use rc instead.'
 }
 
 Remove-Alias ft -Force
