@@ -44,8 +44,8 @@ function getHistory($count = 50) {
 	Get-Content (Get-PSReadlineOption).HistorySavePath -Tail $count
 }
 
-function su {
-	Start-Process wt -Verb RunAs
+function su($dir = '.') {
+	Start-Process wt "-d $dir" -Verb RunAs
 }
 
 function git-shallone([Parameter(Mandatory)]$repo) {
