@@ -48,7 +48,7 @@ function su($dir = '.') {
 	Start-Process wt "-d $dir" -Verb RunAs
 }
 
-function git-shallone([Parameter(Mandatory)]$repo) {
+function gitShallone([Parameter(Mandatory)]$repo) {
 	git clone $repo --depth 1
 }
 
@@ -129,12 +129,12 @@ function rm() {
 Remove-Alias ft -Force
 Remove-Alias diff -Force
 Remove-Alias rm -Force
-Remove-Alias del -Force
 
 Set-Alias open -Value explorer
 Set-Alias ri -Value rm -Force
+Set-Alias del -Value rm -Option AllScope
 Set-Alias rmdir -Value rm
-Set-Alias del -Value rm
+Set-Alias mk -Value make
 
 if (!(Test-Path Env:SSH_CONNECTION) -or (Test-Path Env:SSH_TTY)) {
 	Set-PSReadLineOption -PredictionSource History
