@@ -39,7 +39,7 @@ brewUpdate(){
 clearOldEdge(){
 	cd ~/Library/Application\ Support/Microsoft/EdgeUpdater/apps/msedge-stable && \
 	files=($(ls | sort -V)) && \
-	[[ ${#files} -gt 1 ]] && echo "trash $files[1,-2]" && trash -fr $files[1,-2] && \
+	[[ ${#files} -gt 1 ]] && echo "trash $files[1,-2]" && trash $files[1,-2] && \
 	cd -
 }
 
@@ -47,3 +47,4 @@ alias git-shallone='git clone --depth 1'
 alias rm="echo 'Do not use rm. Use trash instead.'; false"
 alias trash='trash -F'
 alias wget='curl -O'
+alias mk=make
