@@ -126,6 +126,10 @@ function rm() {
 	Write-Error 'Do not use rm. Use rcc instead.'
 }
 
+function op($dir = '.') {
+	explorer $dir
+}
+
 Remove-Alias ft -Force
 Remove-Alias diff -Force
 Remove-Alias rm -Force
