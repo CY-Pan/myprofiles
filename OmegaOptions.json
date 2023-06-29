@@ -12,6 +12,20 @@
 					"pattern": "*.cn"
 				},
 				"profileName": "direct"
+			},
+			{
+				"condition": {
+					"conditionType": "HostWildcardCondition",
+					"pattern": "dl.acm.org"
+				},
+				"profileName": "direct"
+			},
+			{
+				"condition": {
+					"conditionType": "HostWildcardCondition",
+					"pattern": "ieeexplore.ieee.org"
+				},
+				"profileName": "direct"
 			}
 		]
 	},
@@ -26,6 +40,20 @@
 				"condition": {
 					"conditionType": "HostWildcardCondition",
 					"pattern": "*.cn"
+				},
+				"profileName": "direct"
+			},
+			{
+				"condition": {
+					"conditionType": "HostWildcardCondition",
+					"pattern": "dl.acm.org"
+				},
+				"profileName": "direct"
+			},
+			{
+				"condition": {
+					"conditionType": "HostWildcardCondition",
+					"pattern": "ieeexplore.ieee.org"
 				},
 				"profileName": "direct"
 			}
