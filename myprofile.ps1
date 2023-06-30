@@ -52,6 +52,11 @@ function gitShallone([Parameter(Mandatory)]$repo) {
 	git clone $repo --depth 1
 }
 
+function gitPullow() {
+	git fetch --depth 1
+	git reset --hard origin/$(git branch --show-current)
+}
+
 function addRegistryLocations() {
 	if (!(Test-Path HKCR:)) { New-PSDrive -PSProvider Registry -Root HKEY_CLASSES_ROOT -Name HKCR -Scope Global }
 	if (!(Test-Path HKCU:)) { New-PSDrive -PSProvider Registry -Root HKEY_CURRENT_USER -Name HKCU -Scope Global }
