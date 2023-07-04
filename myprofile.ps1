@@ -138,6 +138,7 @@ function rcc([Parameter(Mandatory, ValueFromRemainingArguments)][string[]]$items
 	}
 }
 
+# get full control to a path
 function getFullControl([Parameter(Mandatory)]$path) {
 	Write-Host "Setting full control for $path"
 	if ($(askConfirm) -eq $false) { return }
