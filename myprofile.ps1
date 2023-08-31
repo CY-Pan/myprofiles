@@ -30,6 +30,10 @@ function showPath($pattern) {
 	Get-Variable tmp -ValueOnly
 }
 
+function addPath($newpath) {
+	$env:path += ";$newpath"
+}
+
 # list items sorted by last-write-time
 function lt([switch]$Descending) {
 	if ($Descending.IsPresent) { Get-ChildItem | Sort-Object LastWriteTime -Descending }
