@@ -30,6 +30,7 @@ function showPath($pattern) {
 	Get-Variable tmp -ValueOnly
 }
 
+# add system path
 function addPath($newpath) {
 	$env:path += ";$newpath"
 }
