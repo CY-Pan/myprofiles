@@ -44,7 +44,7 @@ clearOldEdge() {
 }
 
 alias gitShallone='git clone --depth 1'
-alias rm="echo 'Do not use rm. Use trash instead.'; false"
+alias rm='echo Do not use rm. Use trash instead.; false'
 alias trash='trash -F'
 alias wget='curl -O'
 alias mk=make
