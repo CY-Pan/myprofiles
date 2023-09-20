@@ -196,6 +196,9 @@ Set-Alias mk -Value make
 if (!(Test-Path Env:SSH_CONNECTION) -or (Test-Path Env:SSH_TTY)) {
 	Set-PSReadLineOption -PredictionSource History
 	Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
+	Set-PSReadLineKeyHandler -Chord Ctrl+RightArrow -Function ForwardWord
+	Set-PSReadLineKeyHandler -Chord UpArrow -Function HistorySearchBackward
+	Set-PSReadLineKeyHandler -Chord DownArrow -Function HistorySearchForward
 
 	if (Test-Path Env:SSH_CONNECTION) { Write-Host "Hello, remote client from $($env:SSH_CLIENT)." }
 }
