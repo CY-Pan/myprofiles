@@ -183,6 +183,10 @@ function op($dir = '.') {
 	explorer $dir
 }
 
+function cf([Parameter(Mandatory)]$file) {
+	Set-Location (Split-Path $file)
+}
+
 Remove-Alias ft -Force
 Remove-Alias diff -Force
 Remove-Alias rm -Force
