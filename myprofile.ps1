@@ -43,7 +43,15 @@ function lt([switch]$Descending) {
 
 # disk usage
 function du($dir = '.') {
-	Get-ChildItem $dir -Recurse -Force | Measure-Object -Property Length -Sum
+	$size = (Get-ChildItem $dir -Recurse -Force | Measure-Object -Property Length -Sum).Sum
+	Write-Host "Size of ${dir}: " -NoNewline
+	$size_kb = [math]::Round($size / 1kb, 2)
+	$size_mb = [math]::Round($size / 1mb, 2)
+	$size_gb = [math]::Round($size / 1gb, 2)
+	if ($size_kb -lt 1) { Write-Host "${size} bytes" }
+	elseif ($size_mb -lt 1) { Write-Host "${size_kb} KB" }
+	elseif ($size_gb -lt 1) { Write-Host "${size_mb} MB" }
+	else { Write-Host "${size_gb} GB" }
 }
 
 # update pip packages
