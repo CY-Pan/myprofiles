@@ -198,7 +198,7 @@ function cf([Parameter(Mandatory)]$file) {
 
 # implement wget with curl
 function wget([Parameter(Mandatory)]$url) {
-	curl -LO $url
+	Invoke-WebRequest $url -OutFile (Split-Path $url -Leaf)
 }
 
 Remove-Alias ft -Force
