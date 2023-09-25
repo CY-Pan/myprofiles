@@ -191,8 +191,14 @@ function op($dir = '.') {
 	explorer $dir
 }
 
+# change directory to the parent of a file
 function cf([Parameter(Mandatory)]$file) {
 	Set-Location (Split-Path $file)
+}
+
+# implement wget with curl
+function wget([Parameter(Mandatory)]$url) {
+	curl -LO $url
 }
 
 Remove-Alias ft -Force
