@@ -100,7 +100,7 @@ function addRegistryLocations() {
 function newRegistryItemForOpen([Parameter(Mandatory)][string]$Ext,
 	[Parameter(Mandatory)][string]$Program,	[Parameter(Mandatory)][string]$IconPath) {
 	Write-Host "Setting registry for $Ext files with icon $IconPath and opening program $Program"
-	if ($(askConfirm) -eq $false) { return }
+	if ((askConfirm) -eq $false) { return }
 	New-Item ".$($Ext)_auto_file" && \
 	New-Item ".$($Ext)_auto_file\DefaultIcon" && \
 	New-Item ".$($Ext)_auto_file\shell" && \
@@ -140,10 +140,10 @@ function ln([Parameter(Mandatory)]$src, [Parameter(Mandatory)]$linkpath) {
 function rcc([Parameter(Mandatory, ValueFromRemainingArguments)][string[]]$items) {
 	$items | ForEach-Object {
 		if (Test-Path $_ -PathType Leaf) {
-			[Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile($(Resolve-Path $_), 'OnlyErrorDialogs', 'SendToRecycleBin')
+			[Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile((Resolve-Path $_), 'OnlyErrorDialogs', 'SendToRecycleBin')
 		}
 		elseif (Test-Path $_ -PathType Container) {
-			[Microsoft.VisualBasic.FileIO.FileSystem]::DeleteDirectory($(Resolve-Path $_), 'OnlyErrorDialogs', 'SendToRecycleBin')
+			[Microsoft.VisualBasic.FileIO.FileSystem]::DeleteDirectory((Resolve-Path $_), 'OnlyErrorDialogs', 'SendToRecycleBin')
 		}
 		else {
 			Write-Error "Path not found: $_"
@@ -154,7 +154,7 @@ function rcc([Parameter(Mandatory, ValueFromRemainingArguments)][string[]]$items
 # get full control to a path
 function getFullControl([Parameter(Mandatory)]$path) {
 	Write-Host "Setting full control for $path"
-	if ($(askConfirm) -eq $false) { return }
+	if ((askConfirm) -eq $false) { return }
 	$acl = Get-Acl $path
 	$identity = "$env:COMPUTERNAME\$env:USERNAME"
 	$fileSystemRights = "FullControl"
@@ -212,5 +212,5 @@ if (!(Test-Path Env:SSH_CONNECTION) -or (Test-Path Env:SSH_TTY)) {
 	Set-PSReadLineKeyHandler -Chord UpArrow -Function HistorySearchBackward
 	Set-PSReadLineKeyHandler -Chord DownArrow -Function HistorySearchForward
 
-	if (Test-Path Env:SSH_CONNECTION) { Write-Host "Hello, remote client from $($env:SSH_CLIENT)." }
+	if (Test-Path Env:SSH_CONNECTION) { Write-Host "Hello, remote client from $env:SSH_CLIENT." }
 }
