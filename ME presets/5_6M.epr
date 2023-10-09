@@ -10,7 +10,7 @@
 		<CropRect>0,0,0,0</CropRect>
 		<CropState>false</CropState>
 	</StandardFilters>
-	<FolderDisplayPath>System Presets/Broadcast/H.264</FolderDisplayPath>
+	<FolderDisplayPath></FolderDisplayPath>
 	<DoEmulation>false</DoEmulation>
 	<DoVideo>true</DoVideo>
 	<DoAudio>true</DoAudio>
