@@ -102,7 +102,7 @@
 		"color": "#ffee99",
 		"fallbackProxy": {
 			"host": "localhost",
-			"port": 8889,
+			"port": 8890,
 			"scheme": "http"
 		},
 		"name": "proxy2",
