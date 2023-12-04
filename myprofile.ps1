@@ -1,5 +1,5 @@
 # set command line proxy
-function proxy($set = 1) {
+function proxy($set = 2) {
 	switch ($set) {
 		0 {
 			Remove-Item Env:http_proxy
@@ -10,8 +10,8 @@ function proxy($set = 1) {
 			$env:https_proxy = 'http://localhost:7890'
 		}
 		2 {
-			$env:http_proxy = 'http://localhost:8889'
-			$env:https_proxy = 'http://localhost:8889'
+			$env:http_proxy = 'http://localhost:8890'
+			$env:https_proxy = 'http://localhost:8890'
 		}
 	}
 }
