@@ -1,5 +1,5 @@
 # set command line proxy
-function proxy($set = 2) {
+function proxy($set = 1) {
 	switch ($set) {
 		0 {
 			Remove-Item Env:http_proxy
