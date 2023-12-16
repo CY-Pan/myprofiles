@@ -37,10 +37,9 @@ brewUpdate() {
 }
 
 clearOldEdge() {
-	cd ~/Library/Application\ Support/Microsoft/EdgeUpdater/apps/msedge-stable &&
-		files=($(ls | sort -V)) &&
-		[[ ${#files} -gt 1 ]] && echo "trash $files[1,-2]" && trash $files[1,-2] &&
-		cd -
+	open ~/Library/Application\ Support/Microsoft/EdgeUpdater/apps/msedge-stable
+	# files=($(ls | sort -V)) &&
+	# [[ ${#files} -gt 1 ]] && echo "trash $files[1,-2]"
 }
 
 alias gitShallone='git clone --depth 1'
