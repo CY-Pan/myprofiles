@@ -201,6 +201,16 @@ function wget([Parameter(Mandatory)]$url) {
 	Invoke-WebRequest $url -OutFile (Split-Path $url -Leaf)
 }
 
+function catAll($dir = '.') {
+	Get-ChildItem $dir -File | `
+		ForEach-Object {
+		Write-Host -ForegroundColor Green $_
+		Write-Host -ForegroundColor Yellow ----------
+		Get-Content $_
+		Write-Host -ForegroundColor Yellow ----------`n
+	}
+}
+
 Remove-Alias ft -Force
 Remove-Alias diff -Force
 Remove-Alias rm -Force
