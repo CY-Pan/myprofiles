@@ -201,6 +201,7 @@ function wget([Parameter(Mandatory)]$url) {
 	Invoke-WebRequest $url -OutFile (Split-Path $url -Leaf)
 }
 
+# Output the content of all files in a directory
 function catAll($dir = '.') {
 	Get-ChildItem $dir -File | `
 		ForEach-Object {
@@ -209,6 +210,12 @@ function catAll($dir = '.') {
 		Get-Content $_
 		Write-Host -ForegroundColor Yellow ----------`n
 	}
+}
+
+# Get the uptime of the system
+function uptime() {
+	$bootTime = (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
+	Write-Host ((Get-Date) - $bootTime)
 }
 
 Remove-Alias ft -Force
