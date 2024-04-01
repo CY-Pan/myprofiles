@@ -215,7 +215,8 @@ function catAll($dir = '.') {
 # Get the uptime of the system
 function uptime() {
 	$bootTime = (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
-	Write-Host ((Get-Date) - $bootTime)
+	$upTime = ((Get-Date) - $bootTime).ToString("d\d\.h\:mm\:ss")
+	Write-Host "Boot at $bootTime, up for $upTime"
 }
 
 Remove-Alias ft -Force
