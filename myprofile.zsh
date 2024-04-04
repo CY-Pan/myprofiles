@@ -42,6 +42,23 @@ clearOldEdge() {
 	# [[ ${#files} -gt 1 ]] && echo "trash $files[1,-2]"
 }
 
+gitResetRepoCommit() {
+	if read -qs '?Are you sure to discard all commit historys? [y/N] '; then
+		for branch in $(git branch -l); do
+			git checkout $branch
+			git reset --hard $(git commit-tree HEAD^{tree} -m 'Init commit')
+		done
+	else
+		echo "\nAbort."
+	fi
+}
+
+gitCheckAllBranch() {
+	for branch in $(git branch -r | grep -v 'HEAD'); do
+		git checkout ${branch##*/}
+	done
+}
+
 alias gitShallone='git clone --depth 1'
 alias rm='echo Do not use rm. Use trash instead.; false'
 alias trash='trash -F'
