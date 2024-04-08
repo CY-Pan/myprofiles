@@ -18,7 +18,7 @@ function proxy($set = 1) {
 
 # ask for confirmation
 function askConfirm() {
-	$answer = Read-Host "Proceed? [y/N]"
+	$answer = Read-Host 'Proceed? [y/N]'
 	if ($answer -eq 'y' -or $answer -eq 'Y') { return $true }
 	else { return $false }
 }
@@ -77,8 +77,9 @@ function su($dir = '.') {
 }
 
 # git clone with depth 1
-function gitShallone([Parameter(Mandatory)]$repo) {
-	git clone $repo --depth 1
+function gitShallone([Parameter(Mandatory)]$repo, [switch]$NoSingleBranch) {
+	if ($NoSingleBranch.IsPresent) { git clone $repo --depth 1 --no-single-branch }
+	else { git clone $repo --depth 1 }
 }
 
 # git pull with depth 1
@@ -157,8 +158,8 @@ function getFullControl([Parameter(Mandatory)]$path) {
 	if ((askConfirm) -eq $false) { return }
 	$acl = Get-Acl $path
 	$identity = "$env:COMPUTERNAME\$env:USERNAME"
-	$fileSystemRights = "FullControl"
-	$type = "Allow"
+	$fileSystemRights = 'FullControl'
+	$type = 'Allow'
 	$ar = New-Object System.Security.AccessControl.FileSystemAccessRule $identity, $fileSystemRights, $type
 	$acl.SetAccessRule($ar)
 	Set-Acl $path $acl
@@ -215,8 +216,25 @@ function catAll($dir = '.') {
 # Get the uptime of the system
 function uptime() {
 	$bootTime = (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
-	$upTime = ((Get-Date) - $bootTime).ToString("d\d\.h\:mm\:ss")
+	$upTime = ((Get-Date) - $bootTime).ToString('d\d\.h\:mm\:ss')
 	Write-Host "Boot at $bootTime, up for $upTime"
+}
+
+# reset all branches to discard all commit historys
+function gitResetRepoCommit() {
+	Write-Host -NoNewline 'You are about to discard all commit historys. '
+	if ((askConfirm) -eq $false) { return }
+	git branch -l | ForEach-Object {
+		git checkout $_
+		git reset --hard (git commit-tree HEAD^`{tree`} -m 'Init commit')
+	}
+}
+
+# check out all remote branches
+function gitCheckAllBranch() {
+	git branch -r | Where-Object { $_ -notcontains 'HEAD' } | ForEach-Object {
+		git checkout (Split-Path $_ -Leaf)
+	}
 }
 
 Remove-Alias ft -Force
