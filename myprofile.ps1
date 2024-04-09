@@ -237,6 +237,16 @@ function gitCheckAllBranch() {
 	}
 }
 
+# randomly choose from a list
+function randChoose([Parameter(Mandatory, ValueFromRemainingArguments)]$items) {
+	$items | Get-Random
+}
+
+# randomly shuffle a list
+function shuffle([Parameter(Mandatory, ValueFromRemainingArguments)]$items) {
+	$items | Get-Random -Shuffle
+}
+
 Remove-Alias ft -Force
 Remove-Alias diff -Force
 Remove-Alias rm -Force
