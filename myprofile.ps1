@@ -256,6 +256,7 @@ Set-Alias ri -Value rm -Force
 Set-Alias del -Value rm -Option AllScope
 Set-Alias rmdir -Value rm
 Set-Alias mk -Value make
+Set-Alias which -Value Get-Command
 
 if (!(Test-Path Env:SSH_CONNECTION) -or (Test-Path Env:SSH_TTY)) {
 	Set-PSReadLineOption -PredictionSource History
