@@ -138,7 +138,7 @@ function ln([Parameter(Mandatory)]$src, [Parameter(Mandatory)]$linkpath) {
 }
 
 # send file to recycle bin
-function rcc([Parameter(Mandatory, ValueFromRemainingArguments)][string[]]$items) {
+function trash([Parameter(Mandatory, ValueFromRemainingArguments)][string[]]$items) {
 	$items | ForEach-Object {
 		if (Test-Path $_ -PathType Leaf) {
 			[Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile((Resolve-Path $_), 'OnlyErrorDialogs', 'SendToRecycleBin')
