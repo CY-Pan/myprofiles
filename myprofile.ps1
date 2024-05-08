@@ -247,6 +247,12 @@ function shuffle([Parameter(Mandatory, ValueFromRemainingArguments)]$items) {
 	$items | Get-Random -Shuffle
 }
 
+# touch a file
+function touch([Parameter(Mandatory)]$file) {
+	if (Test-Path $file) { (Get-Item $file).LastWriteTime = Get-Date }
+	else { New-Item $file -ItemType File }
+}
+
 Remove-Alias ft -Force
 Remove-Alias diff -Force
 Remove-Alias rm -Force
