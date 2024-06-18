@@ -67,8 +67,9 @@ function showSSHlogs($count = 10) {
 }
 
 # get powershell history
-function getHistory($count = 50) {
-	Get-Content (Get-PSReadlineOption).HistorySavePath -Tail $count
+function getHistory($count = 50, [switch]$all) {
+	if ($all.IsPresent) { Get-Content (Get-PSReadlineOption).HistorySavePath }
+	else {	Get-Content (Get-PSReadlineOption).HistorySavePath -Tail $count }
 }
 
 # start another wt instance with admin privilege
