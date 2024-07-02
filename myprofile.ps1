@@ -254,6 +254,24 @@ function touch([Parameter(Mandatory)]$file) {
 	else { New-Item $file -ItemType File }
 }
 
+function downloadFolder([Parameter(Mandatory)]$url) {
+	if ($url[-1] -ne '/') { $url += '/' }
+	$content = (Invoke-WebRequest $url).Content
+	$files = (Select-String -InputObject $content 'href="([^"]+)"' -AllMatches).Matches.Groups
+	$files = $files | ForEach-Object { $_.ToString().TrimStart('/') } | Where-Object {
+		$_.Length -gt 0 -and $_ -notlike 'href*' -and $_ -notlike '~*' -and
+		$_ -notlike '.*' -and $_ -notlike '`?*' -and $_ -notlike '*/'
+	}
+	$count = $files.Length
+	Write-Host "Totally $count files found."
+	$i = 1
+	$files | ForEach-Object {
+		Write-Host "Downloading $i of ${count}: $_"
+		wget($url + $_)
+		$i++
+	}
+}
+
 Remove-Alias ft -Force
 Remove-Alias diff -Force
 Remove-Alias rm -Force
