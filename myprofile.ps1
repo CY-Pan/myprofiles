@@ -254,6 +254,7 @@ function touch([Parameter(Mandatory)]$file) {
 	else { New-Item $file -ItemType File }
 }
 
+# Download all files in http server of a folder
 function downloadFolder([Parameter(Mandatory)]$url) {
 	if ($url[-1] -ne '/') { $url += '/' }
 	$content = (Invoke-WebRequest $url).Content
@@ -270,6 +271,20 @@ function downloadFolder([Parameter(Mandatory)]$url) {
 		wget($url + $_)
 		$i++
 	}
+}
+
+# Get the hash of a string
+function getHash([Parameter(Mandatory)]$str,
+	[ValidateSet('MD5', 'SHA1', 'SHA256', 'SHA384', 'SHA512')]$Algorithm = 'MD5') {
+	switch ($Algorithm) {
+		'MD5' { $hasher = [System.Security.Cryptography.MD5]::Create() }
+		'SHA1' { $hasher = [System.Security.Cryptography.SHA1]::Create() }
+		'SHA256' { $hasher = [System.Security.Cryptography.SHA256]::Create() }
+		'SHA384' { $hasher = [System.Security.Cryptography.SHA384]::Create() }
+		'SHA512' { $hasher = [System.Security.Cryptography.SHA512]::Create() }
+	}
+	$hash = $hasher.ComputeHash([System.Text.Encoding]::UTF8.GetBytes($str))
+	Write-Host ([BitConverter]::ToString($hash) -replace '-', '')
 }
 
 Remove-Alias ft -Force
