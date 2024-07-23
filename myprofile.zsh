@@ -59,6 +59,10 @@ gitCheckAllBranch() {
 	done
 }
 
+gitGraph() {
+	git log --all --graph --oneline
+}
+
 alias gitShallone='git clone --depth 1'
 alias rm='echo Do not use rm. Use trash instead.; false'
 alias trash='trash -F'
