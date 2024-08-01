@@ -1,6 +1,6 @@
 FROM ubuntu
 
-RUN sed 's|^deb http://.*com|deb http://mirror.sjtu.edu.cn|g' /etc/apt/sources.list -i && \
+RUN sed 's|^URIs: http://.*com|URIs: http://mirror.sjtu.edu.cn|g' /etc/apt/sources.list.d/ubuntu.sources -i && \
 	apt update && apt upgrade -y && \
 	apt install -y git vim zsh wget sudo && \
 	apt clean && apt autopurge && \
