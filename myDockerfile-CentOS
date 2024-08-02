@@ -1,7 +1,7 @@
 FROM centos
 
 RUN sed -e 's|mirrorlist|#mirrorlist|g' -e 's|#baseurl=http://mirror.centos.org/|baseurl=http://mirrors.aliyun.com/|g' -i.bak /etc/yum.repos.d/*.repo && \
-	yum upgrade -y && yum install -y git vim zsh sudo && \
+	dnf upgrade -y && dnf install -y git vim zsh sudo && \
 	useradd -m adred -s /usr/bin/zsh && usermod -aG wheel adred && \
 	sed 's|%wheel\sALL=(ALL)\sALL|%wheel ALL=(ALL) NOPASSWD:ALL|' /etc/sudoers -i
 
