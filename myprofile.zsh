@@ -36,11 +36,11 @@ brewUpdate() {
 	brew update && brew upgrade && brew autoremove && brew cleanup -s
 }
 
-clearOldEdge() {
-	open ~/Library/Application\ Support/Microsoft/EdgeUpdater/apps/msedge-stable
-	# files=($(ls | sort -V)) &&
-	# [[ ${#files} -gt 1 ]] && echo "trash $files[1,-2]"
-}
+# clearOldEdge() {
+# open ~/Library/Application\ Support/Microsoft/EdgeUpdater/apps/msedge-stable
+# files=($(ls | sort -V)) &&
+# [[ ${#files} -gt 1 ]] && echo "trash $files[1,-2]"
+# }
 
 gitResetRepoCommit() {
 	if read -qs '?Are you sure to discard all commit historys? [y/N] '; then
@@ -68,3 +68,4 @@ alias rm='echo Do not use rm. Use trash instead.; false'
 alias trash='trash -F'
 alias wget='curl -O'
 alias mk=make
+alias op='open .'
