@@ -63,6 +63,14 @@ gitGraph() {
 	git log --all --graph --oneline
 }
 
+dYTvideo() {
+	if [[ $# -ne 2 ]]; then
+		echo "Usage: dYTvideo <URL> <CookieFile>"
+		return 1
+	fi
+	yt-dlp --cookies $2 --merge-output-format mp4 $1
+}
+
 alias gitShallone='git clone --depth 1'
 alias rm='echo Do not use rm. Use trash instead.; false'
 alias trash='trash -F'
