@@ -56,6 +56,13 @@
 					"pattern": "ieeexplore.ieee.org"
 				},
 				"profileName": "direct"
+			},
+			{
+				"condition": {
+					"conditionType": "HostWildcardCondition",
+					"pattern": "chatgpt.com"
+				},
+				"profileName": "proxy1"
 			}
 		]
 	},
