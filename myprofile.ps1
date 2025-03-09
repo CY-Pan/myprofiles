@@ -114,13 +114,13 @@ function newRegistryItemForOpen([Parameter(Mandatory)][string]$Ext,
 }
 
 # download youtube audio
-function dYTaudio([Parameter(Mandatory)]$URL) {
-	yt-dlp -f ba -x --audio-format mp3 $URL
+function dYTaudio([Parameter(Mandatory)]$URL, [Parameter(Mandatory)]$cookiefile) {
+	yt-dlp --cookies $cookiefile -f ba -x --audio-format mp3 $URL
 }
 
 # download youtube video
-function dYTvideo([Parameter(Mandatory)]$URL) {
-	yt-dlp --merge-output-format mp4 $URL
+function dYTvideo([Parameter(Mandatory)]$URL, [Parameter(Mandatory)]$cookiefile) {
+	yt-dlp --cookies $cookiefile --merge-output-format mp4 $URL
 }
 
 # format table with wrap
