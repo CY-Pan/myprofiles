@@ -1,0 +1,60 @@
+{
+	"editor.acceptSuggestionOnEnter": "off",
+	"editor.copyWithSyntaxHighlighting": false,
+	"editor.fontFamily": "FantasqueSansM Nerd Font, FiraCode Nerd Font, 微软雅黑",
+	"editor.fontLigatures": true,
+	"editor.fontSize": 22,
+	"editor.formatOnSave": true,
+	"editor.formatOnType": true,
+	"editor.guides.bracketPairs": true,
+	"editor.insertSpaces": false,
+	"editor.lineHeight": 28,
+	"editor.rulers": [
+		80,
+		120
+	],
+	"editor.suggestSelection": "recentlyUsedByPrefix",
+	"editor.tabCompletion": "on",
+	"explorer.sortOrder": "type",
+	"extensions.ignoreRecommendations": true,
+	"files.trimTrailingWhitespace": true,
+	"git.confirmSync": false,
+	"git.enableSmartCommit": true,
+	"git.openRepositoryInParentFolders": "never",
+	"security.workspace.trust.enabled": false,
+	"terminal.integrated.copyOnSelection": true,
+	"terminal.integrated.cursorBlinking": true,
+	"terminal.integrated.cursorStyle": "line",
+	"terminal.integrated.fontSize": 17,
+	"terminal.integrated.persistentSessionReviveProcess": "never",
+	"window.commandCenter": false,
+	"workbench.colorCustomizations": {
+		"editor.foreground": "#000"
+	},
+	"workbench.colorTheme": "Quiet Light",
+	"workbench.editorAssociations": {
+		"*.ipynb": "jupyter-notebook",
+		"*.pdf": "latex-workshop-pdf-hook"
+	},
+	"workbench.iconTheme": "vscode-icons",
+	"background.editor": {
+		"useFront": false,
+		"style": {
+			"background-position": "center",
+			"background-size": "cover",
+			"opacity": 0.12
+		},
+		"images": [
+			"https://user-images.githubusercontent.com/59761962/201860448-cfb29b3a-5728-4b49-a45b-ddc999e37c36.jpg"
+		]
+	},
+	"github.copilot.enable": {
+		"plaintext": false,
+		"markdown": false
+	},
+	"markdown-preview-enhanced.codeBlockTheme": "one-light.css",
+	"markdown-preview-enhanced.scrollSync": false,
+	"csv-preview.lineNumbers": "source",
+	"csv-preview.numberFormat": "g3",
+	"redhat.telemetry.enabled": false
+}
