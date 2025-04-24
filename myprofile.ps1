@@ -120,7 +120,7 @@ function dYTaudio([Parameter(Mandatory)]$URL, [Parameter(Mandatory)]$cookiefile)
 
 # download youtube video
 function dYTvideo([Parameter(Mandatory)]$URL, [Parameter(Mandatory)]$cookiefile) {
-	yt-dlp --cookies $cookiefile --merge-output-format mp4 $URL
+	yt-dlp --cookies $cookiefile -S proto --abort-on-unavailable-fragments --merge-output-format mp4 $URL
 }
 
 # format table with wrap
