@@ -25,14 +25,19 @@ function askConfirm() {
 
 # print system path that matches the pattern
 function showPath($pattern) {
-	$tmp = $env:path -split ';' -match $pattern
-	$tmp | Measure-Object -Line
-	Get-Variable tmp -ValueOnly
+	$path = $env:Path -split ';' -match $pattern
+	$path | Measure-Object -Line
+	Get-Variable path -ValueOnly
+}
+
+function showCustomPath() {
+	$path = $env:Path -split ';' -notmatch 'windows|system32|nvidia'
+	Get-Variable path -ValueOnly
 }
 
 # add system path
 function addPath($newpath) {
-	$env:path += ";$newpath"
+	$env:Path += ";$newpath"
 }
 
 # list items sorted by last-write-time
