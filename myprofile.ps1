@@ -193,6 +193,10 @@ function rm() {
 	Write-Error 'Do not use rm. Use rcc instead.'
 }
 
+function npm() {
+	Write-Error 'Do not use npm. Use pnpm instead.'
+}
+
 # alias for open
 function op($dir = '.') {
 	explorer $dir
