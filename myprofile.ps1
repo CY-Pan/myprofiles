@@ -190,7 +190,7 @@ function dice() {
 
 # block remove-item alias
 function rm() {
-	Write-Error 'Do not use rm. Use rcc instead.'
+	Write-Error 'Do not use rm. Use trash instead.'
 }
 
 function npm() {
