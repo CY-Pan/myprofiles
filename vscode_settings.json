@@ -17,7 +17,9 @@
 	"editor.tabCompletion": "on",
 	"explorer.sortOrder": "type",
 	"extensions.ignoreRecommendations": true,
+	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
+	"git.blame.editorDecoration.enabled": true,
 	"git.confirmSync": false,
 	"git.enableSmartCommit": true,
 	"git.openRepositoryInParentFolders": "never",
@@ -25,7 +27,7 @@
 	"terminal.integrated.copyOnSelection": true,
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.fontSize": 17,
+	"terminal.integrated.fontSize": 20,
 	"terminal.integrated.persistentSessionReviveProcess": "never",
 	"window.commandCenter": false,
 	"workbench.colorCustomizations": {

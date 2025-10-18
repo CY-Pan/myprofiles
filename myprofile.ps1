@@ -120,12 +120,14 @@ function newRegistryItemForOpen([Parameter(Mandatory)][string]$Ext,
 
 # download youtube audio
 function dYTaudio([Parameter(Mandatory)]$URL, [Parameter(Mandatory)]$cookiefile) {
-	yt-dlp --cookies $cookiefile -f ba -x --audio-format mp3 $URL
+	if ($cookiefile -eq '-') { yt-dlp -f ba -x --audio-format mp3 $URL }
+	else { yt-dlp --cookies $cookiefile -f ba -x --audio-format mp3 $URL }
 }
 
 # download youtube video
 function dYTvideo([Parameter(Mandatory)]$URL, [Parameter(Mandatory)]$cookiefile) {
-	yt-dlp --cookies $cookiefile -S proto --abort-on-unavailable-fragments --merge-output-format mp4 $URL
+	if ($cookiefile -eq '-') { yt-dlp -S proto --abort-on-unavailable-fragments --merge-output-format mp4 $URL }
+	else { yt-dlp --cookies $cookiefile -S proto --abort-on-unavailable-fragments --merge-output-format mp4 $URL }
 }
 
 # format table with wrap
