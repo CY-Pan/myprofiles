@@ -298,6 +298,19 @@ function getHash([Parameter(Mandatory)]$str,
 	Write-Host ([BitConverter]::ToString($hash) -replace '-', '')
 }
 
+function convertFileToLastWriteTime([Parameter(Mandatory, ValueFromRemainingArguments, ValueFromPipeline)][string[]]$files) {
+	$files | ForEach-Object {
+		if (Test-Path $_) {
+			$f = Get-Item $_
+			$timestamp = $f.LastWriteTime.ToString("yyyyMMddHHmmss")
+			$extension = $f.Extension
+
+			Rename-Item $f.FullName "$timestamp$extension"
+		}
+		else { Write-Error "File not found: $_" }
+	}
+}
+
 Remove-Alias ft -Force
 Remove-Alias diff -Force
 Remove-Alias rm -Force
