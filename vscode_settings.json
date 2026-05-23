@@ -3,12 +3,12 @@
 	"editor.copyWithSyntaxHighlighting": false,
 	"editor.fontFamily": "FantasqueSansM Nerd Font, FiraCode Nerd Font, 微软雅黑",
 	"editor.fontLigatures": true,
-	"editor.fontSize": 22,
+	"editor.fontSize": 20,
 	"editor.formatOnSave": true,
 	"editor.formatOnType": true,
 	"editor.guides.bracketPairs": true,
 	"editor.insertSpaces": false,
-	"editor.lineHeight": 28,
+	"editor.lineHeight": 26,
 	"editor.rulers": [
 		80,
 		120
@@ -27,9 +27,11 @@
 	"terminal.integrated.copyOnSelection": true,
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.fontSize": 20,
+	"terminal.integrated.fontSize": 18,
 	"terminal.integrated.persistentSessionReviveProcess": "never",
 	"window.commandCenter": false,
+	"window.zoomLevel": 0.5,
+	"window.restoreWindows": "none",
 	"workbench.colorCustomizations": {
 		"editor.foreground": "#000"
 	},
