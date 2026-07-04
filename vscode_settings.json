@@ -60,5 +60,14 @@
 	"markdown-preview-enhanced.scrollSync": false,
 	"csv-preview.lineNumbers": "source",
 	"csv-preview.numberFormat": "g3",
-	"redhat.telemetry.enabled": false
+	"redhat.telemetry.enabled": false,
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.black-formatter"
+	},
+	"chat.viewSessions.orientation": "stacked",
+	"chat.plugins.marketplaces": [
+		"github/copilot-plugins",
+		"github/awesome-copilot#marketplace",
+		"obra/superpowers-marketplace"
+	]
 }
