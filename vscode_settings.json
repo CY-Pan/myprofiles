@@ -36,6 +36,7 @@
 		"editor.foreground": "#000"
 	},
 	"workbench.colorTheme": "Quiet Light",
+	"workbench.editor.wrapTabs": true,
 	"workbench.editorAssociations": {
 		"*.ipynb": "jupyter-notebook",
 		"*.pdf": "latex-workshop-pdf-hook"
