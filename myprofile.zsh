@@ -33,7 +33,7 @@ pipUpdate() {
 }
 
 brewUpdate() {
-	brew update && brew upgrade && brew autoremove && brew cleanup -s
+	brew update && brew upgrade -y && brew autoremove && brew cleanup -s
 }
 
 # clearOldEdge() {
